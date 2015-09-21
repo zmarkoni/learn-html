@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rounded Corners</title>
+  <style>
+    div.button {
+      margin: 30px;
+      border: 1px solid #000;
+      display: inline-block;
+      padding: 6px;
+    }
+
+    #mac {
+      border-radius: 16px; /* half of button size + padding */
+      -moz-border-radius: 16px;
+      height: 20px;
+      background: -webkit-gradient(linear, left top, left bottom, from(#8cc0f6), to(#cfe4fa));
+      background: -moz-linear-gradient(top, #8cc0f6, #cfe4fa);
+    }
+
+    #gmail { 
+      border-radius: 3px;
+      -moz-border-radius: 3px;
+      background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
+      background: -moz-linear-gradient(top, #fff, #ddd);  
+      border: 1px solid #bbb;
+    }
+    
+    #circle {
+      border-radius: 50%; /* half of button size + padding */
+      -moz-border-radius: 50%;
+      height: 60px;
+      width: 60px;
+      border: 2px solid #ccc;
+      background: -webkit-gradient(linear, left top, left bottom, from(#f53e0c), to(#ffbaa8));
+      background: -moz-linear-gradient(top, #f53e0c, #ffbaa8);  
+    }
+    
+    #circle span {
+      position: relative;
+        top: 10px;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+      .wrapper {
+      
+        width:960px;
+        margin:50px auto;
+      }
+
+      h1 {
+        display:block;
+        width:100%;
+        margin-bottom:100px;
+        float:left;
+      }
+
+  </style>
+  </head>
+  <body style="font: 75% Lucida Grande, Trebuchet MS">
+    <div class="wrapper">
+
+      <h1>Rounded Corners</h1>
+      
+        <div class="button" id="mac">50% round button style</div>
+    
+        <div class="button" id="gmail">Gmail button style</div>
+    
+        <div class="button" id="circle"><span>Circle button style</span></div>
+    
+        <p id="log" style="color: gray"></p>
+
+   </div>
+
+
+  </body>
+</html>​

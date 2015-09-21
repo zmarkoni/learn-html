@@ -1,0 +1,250 @@
+/*----------html-elements
+-----------------------------------------------------*/
+body {
+font-family: Georgia, serif;
+}
+
+
+h1 {
+font-size: 40px;
+margin: 0;
+padding-bottom: 20px;
+color: #0090D2;
+}
+
+::selection {
+background: #0090D2;
+/* color: #FFF; */
+border: none;
+}
+
+a, a:visited {
+color: #0090D2;
+text-decoration: none;
+}
+
+a:hover {
+color: #0063A6;
+}
+
+:focus {
+outline: none;
+}
+
+
+#content[role="main"] {
+background: #FFF;
+border-top: 45px solid #0090D2;
+margin: -45px auto 0;
+padding: 24px 0 0 0;
+width: 1020px;
+}
+
+
+#glossary-list {
+    width: 100%;
+    
+    
+}
+
+
+
+/* ordered list */
+#glossary-list ol.nav{
+  border-top: 4px solid #F0F0F0;
+  border-bottom: 4px solid #F0F0F0;
+  clear: both;
+  float: left;
+  list-style:none; /* TODO: replace in template with .semantic-list */
+  margin: 20px 0 20px 0;
+  padding:5px 0;
+  text-align:center;
+  width: 100%;
+}
+#glossary-list ol.nav li{
+	color: #888;
+ 	display:inline;
+	padding:10px;
+	/**/
+	font-size:125%;
+	font-weight: 400;
+	line-height:1.4;
+	margin:1.25em 0 0.8em;
+	text-transform: uppercase;
+}
+#glossary-list ol.nav li a{
+  display:inline-block;
+}
+#glossary-list h2{
+	color:#0090D2;
+	font-size: 47px;
+	font-weight: 400;
+	line-height: 47px;
+	margin: 0;
+	clear: both;
+	cursor: default;
+	float: left;
+	text-decoration: none;
+	width: 100px;
+}
+#glossary-list section{
+	float: left;
+	margin: 0 0 20px 0;
+	padding: 0 0 10px 0;
+	border-bottom: 4px solid #F0F0F0;
+	clear: both;
+	width: 100%;
+}
+
+#glossary-list .mod {
+	margin-bottom:0;
+}
+#glossary-list section:last-child{
+	border-bottom: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+/* GLOSSARY DL */
+#glossary-list dl{
+	float:right;
+	height:auto !important;
+	margin:0 0 10px;
+	min-height:30px;
+	padding:10px;
+	width: 900px;
+}
+#glossary-list dl:hover{
+	background: #EEE;
+}
+#glossary-list dt{
+	float:left;
+	font-size:14.158px;
+	text-transform:uppercase;
+	padding: 0 0 0 5px;
+	width: 25%;
+	font-weight: bold;
+        
+        
+	text-align: left;
+	display: block;
+}
+
+#glossary-list dt .show-details{
+	display:inline-block;
+        margin-left: 20px;
+        
+	background: #0090D2;
+        border:none;
+        box-shadow: none;
+        
+	color: #fff;
+        
+	padding: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100px;
+	float: right;
+}
+
+#glossary-list dt .viewDocs{
+	 display: none; 
+	margin: 50px 0 0;
+        clear: both;
+        float:left;
+}
+
+
+#glossary-list dt .viewDocs a{
+    clear: both;
+    margin-top: 20px;
+	transform: rotate(90deg);   
+        transform-origin: left top 0;
+	float: left;
+	margin-left: 15px;
+    
+    display: block;
+}
+
+
+#glossary-list dd{
+        display:none;
+	float:right;
+	font-size:1em;
+	
+        width: 70%;
+        margin-bottom: 0.8em;
+	display: collapse;
+}
+
+#glossary-list dt:hover #glossary-list dd{
+    display: block;
+}
+
+#glossary-list dd p{
+	margin: 0px 0px 15px 0px;
+}
+#glossary-list dd ol,
+#glossary-list dd ul{
+	list-style-position:outside;
+}
+#glossary-list dd li{
+	margin: 4px 0px 10px;
+}
+#glossary-list dd footer{
+	padding: 1em 0 0 0;
+	margin: 1em 0 0 0;
+	width: 100%;
+	/*padding: 0 !important;
+	border: none !important;*/
+	border-top: 1px solid #fff;
+	font-size:14.158px;
+}
+
+#glossary-list dd .pln,
+#glossary-list dd footer span {
+    color: #0090D2;
+}
+
+#glossary-list dd footer xmp {margin: 20px;margin-top: 0;white-space: pre-line;}
+
+#glossary-list dd footer details{
+background: #F9F9F9;
+padding: 10px;
+}
+
+#glossary-list dd footer summary {
+    /* margin-bottom: 20px; */
+    color: #0090D2;
+}
+
+#glossary-list dd footer mark {
+    color: #0090D2;
+}
+
+#glossary-list dd footer title {display: block}
+
+#glossary-list dl:hover dd footer{
+	border-color: #BFBFBF;
+}
+#glossary-list dd footer a.link{
+	float: left;
+	width: 440px;
+}
+#glossary-list dl a.code{
+	float: right;
+	margin-top: -5px;	
+	padding: 5px;
+}
+#glossary-list dl:hover a.code{
+	font-weight: normal;
+	background:#FFF;
+}
+#glossary-list dl a.code:hover{
+	text-decoration: underline;
+}
+#to-top{
+	bottom: 20px;
+	position: fixed;
+	right: 20px;
+}
+

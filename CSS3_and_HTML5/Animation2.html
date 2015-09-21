@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="EN" dir="ltr" xmlns="http://www.w3.org/1999/
+   xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/xml;
+    charset=utf-8" />
+ <style type = "text/css">
+  #content {
+    width: 400px;
+    height: 200px;
+    font-size: 200%;
+    padding-left:1em;
+    background-color: yellow;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+  }
+  h2 {
+    width: 10em;
+    border: 3px outset black;
+    background-color: lightgray;
+    text-align: center;
+    font-family: sans-serif;
+    /* corners for compliant browsers */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+  } 
+  </style>
+  
+ <script src="js/jQuery-v1.9.1.js"></script>
+
+  <script type = "text/javascript">
+      //<![CDATA[
+      $(init);
+
+      function init() {
+          //styleContent();
+          $("#content").hide();
+          $("#show").click(showContent);
+          $("#hide").click(hideContent);
+          $("#toggle").click(toggleContent);
+          $("#slideDown").click(slideDown);
+          $("#slideUp").click(slideUp);
+          $("#fadeIn").click(fadeIn);
+          $("#fadeOut").click(fadeOut);
+      } // end init
+
+      function showContent() {
+          $("#content").show();
+      } // end showContent
+      function hideContent() {
+          $("#content").hide();
+      } // end hideContent
+
+      function toggleContent() {
+          $("#content").toggle(); //Toggling visibility
+      } // end toggleContent
+
+      function slideDown() {
+          $("#content").slideDown("medium");
+      } // end slideDown
+
+      function slideUp() {
+          $("#content").slideUp(500);
+      } // end slideUp
+
+      function fadeIn() {//The fading techniques adjust the opacity
+          $("#content").fadeIn("slow", present);
+          //If you supply the fadeIn() method (or indeed any of the animation methods described in this section) with a function name as a second parameter, 
+          //that function is called upon completion of the animation
+      } // end fadeIn
+
+      function fadeOut() {
+          $("#content").fadeOut("fast");
+      } // end fadeOut.
+
+      function present() {
+          alert("I'm here");
+      } // end present
+      //]]>
+  </script>
+  <title>hideShow.html</title>
+</head>
+
+<body>
+  <h1>Hide and show</h1>
+  <h2 id = "show">Show</h2>
+  <h2 id = "hide">Hide</h2>
+  <h2 id = "toggle">Toggle</h2>
+  <h2 id = "slideDown">Slide Down</h2>
+  <h2 id = "slideUp">Slide Up</h2>
+  <h2 id = "fadeIn">Fade In</h2>
+  <h2 id = "fadeOut">Fade Out</h2>
+
+  <p id = "content">
+    This is the content. It is hidden at first, but it is hidden and shown with jQuery techniques.
+  </p>
+
+</body>
+</html>

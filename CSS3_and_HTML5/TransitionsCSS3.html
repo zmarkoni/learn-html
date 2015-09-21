@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Transitions Tutorial</title>
+    <style>
+
+        .wrapper {
+            width:960px;
+            margin: 50px auto;
+        }
+
+    #element {
+      display: inline;
+      height: 20px;
+      background: red;
+      color: white;
+      padding:20px;
+      margin-top:50px;
+      display: block;
+      float: left;
+      cursor:pointer;
+
+      -webkit-transition: margin-left 1s ease-in-out;
+      -moz-transition: margin-left 1s ease-in-out;
+      -o-transition: margin-left 1s ease-in-out;
+      transition: margin-left 1s ease-in-out;
+    }
+
+    #element.left {
+     margin-left: 0;
+    }
+    #element.right {
+      margin-left: 500px;
+    }
+  </style>
+</head>
+<body>
+    <div class="wrapper">
+
+        <h1>CSS3 Transitions Tutorial by Zoran</h1>
+
+        <div id="element"></div>
+    </div>
+
+    <script type="text/javascript">
+
+        var el = document.querySelector('#element');
+
+        el.innerHTML = "click here to start transition";
+
+        el.addEventListener('click', function () {
+            if (this.className == 'right') {
+                this.className = "left";
+            } else {
+                this.className = "right";
+            }
+        },false );
+
+            </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>2D Transforms</title>
+  
+  <style>
+    .rotate-45 { -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg);  }
+    .rotate75  { -webkit-transform: rotate(75deg); -moz-transform: rotate(75deg); -o-transform: rotate(75deg);  }
+    .rotate90  { -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg);  }
+    
+    .rotate90plus { -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -o-transform: rotate(45deg); 
+                    -webkit-transform-origin: 50%; -moz-transform-origin: 50%; -o-transform-origin: 50%;  }
+    
+    .scale02  { -webkit-transform: scale(0.2); -moz-transform: scale(0.2); -o-transform: scale(0.2);  }
+    .scaleX2  { -webkit-transform: scaleX(2); -moz-transform: scaleX(2); -o-transform: scaleX(2);  }
+    .scaleY15 { -webkit-transform: scaleY(1.5); -moz-transform: scaleY(1.5); -o-transform: scaleY(1.5);  }
+    
+    .skewX10 { -webkit-transform: skewX(10deg); -moz-transform: skewX(10deg); -o-transform: skewX(10deg);  }
+    .skewX30 { -webkit-transform: skewX(30deg); -moz-transform: skewX(30deg); -o-transform: skewX(30deg);  }
+    .skewY20 { -webkit-transform: skewY(20deg); -moz-transform: skewY(20deg); -o-transform: skewY(20deg);  }
+    
+    li { display: table-cell; font-size: 9px; width: 80px; font-family: Verdana; padding: 10px; }
+  </style>
+  </head>
+  <body style="font: 75% Lucida Grande, Trebuchet MS">
+
+    <div class="wrapper">
+        <h1>2D Transforms</h1>
+
+    <ul>
+      <li><p>rotate(-45deg)</p><img class="rotate-45" src="http://playground.html5rocks.com/images/trash.gif" /></li>
+      <li><p>rotate(75deg)</p><img class="rotate75" src="http://playground.html5rocks.com/images/trash.gif" /></li>
+      <li><p>rotate(90deg)</p><img class="rotate90" src="http://playground.html5rocks.com/images/trash.gif" /></li>
+    </ul>
+    <ul>
+      <li><p>scale(0.2)</p><img class="scale02" src="http://playground.html5rocks.com/images/trash.gif" /></li>
+      <li><p>scaleX(2)</p><img class="scaleX2" src="http://playground.html5rocks.com/images/trash.gif" /></li>
+      <li><p>scaleY(1.5)</p><img class="scaleY15" src="http://playground.html5rocks.com/images/trash.gif" /></li>
+    </ul>
+    <ul>
+      <li><p>skewX(10deg)</p><img class="skewX10" src="http://playground.html5rocks.com/images/trash.gif" /></li>
+      <li><p>skewX(30deg)</p><img class="skewX30" src="http://playground.html5rocks.com/images/trash.gif" /></li>
+      <li><p>skewY(20deg)</p><img class="skewY20" src="http://playground.html5rocks.com/images/trash.gif" /></li>
+    </ul>
+
+    </div>
+  </body>
+</html>​

@@ -1,0 +1,61 @@
+﻿/*-----CSS3 Started on 2/26/11 at 7:28 AM CST-----*/
+h1{
+	text-shadow: -3px 2px 0px #514d46;
+}
+#nav{
+	-moz-box-shadow: 0px 0px 12px rgba(88, 83, 74, .7); 
+  	-webkit-box-shadow: 0px 0px 12px rgba(88, 83, 74, .7); 
+	box-shadow: 0px 0px 12px rgba(88, 83, 74, .7); 
+	background-image: -moz-linear-gradient(top, #5c5850, #48473e);
+  	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #5c5850),color-stop(1, #48473e));
+  	background-image: -webkit-linear-gradient(#5c5850, #48473e);
+  	background-image: -o-linear-gradient(#5c5850, #48473e);
+  	background-image: linear-gradient(top, #5c5850, #48473e);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#5c5850', EndColorStr='#48473e');
+}
+nav a{
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+    border-radius: 12px;
+}
+nav a:hover{
+	background-color: #3a3e38;
+	background-color: rgba(47, 54, 48, .7);
+}
+nav a.active {
+	background-color: #070807;
+}
+
+body{
+	background-image: -webkit-gradient(radial, 50% 10%, 0, 50% 10%, 500, from(#FBF8E3), to(#E6E3D0));
+	background-image: -moz-radial-gradient(50% 10%, farthest-side, #FBF8E3, #E6E3D0);
+}
+
+#learn_more, #details img{
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: inset 0px 0px 8px rgba(88, 83, 74, .2);
+	-moz-box-shadow: inset 0px 0px 8px rgba(88, 83, 74, .2);
+	box-shadow: inset 0px 0px 8px rgba(88, 83, 74, .2);
+}
+#learn_more a{
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #cc3b23;
+	background-image: -moz-linear-gradient(top, #cc3b23, #c00b00);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #cc3b23),color-stop(1, #c00b00));
+	background-image: -webkit-linear-gradient(#cc3b23, #c00b00);
+	background-image: -o-linear-gradient(#cc3b23, #c00b00);
+	background-image: linear-gradient(top, #cc3b23, #c00b00);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#cc3b23', EndColorStr='#c00b00');      
+}
+a{
+	-moz-transition: all 0.3s ease-in;
+	-o-transition: all 0.3s ease-in;
+	-webkit-transition: all 0.3s ease-in;
+	transition: all 0.3s ease-in;  
+}
+/*-----CSS3 Finished on 2/26/11 at 8:17 AM CST (49 minutes) -----*/body {
+}

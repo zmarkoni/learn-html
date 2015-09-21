@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="js/jQuery-v1.9.1.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+
+    <style>
+        body {
+            background:#ECECEC;
+        }
+
+        #eight_image_container {
+            position:relative;
+            width:1200px;
+            height:1000px;
+            margin:0 auto;
+            z-index:1;
+            background:silver;
+        }
+
+        #eight_image_container .animations {
+            position:absolute;
+            z-index:2;
+            width:134px;
+            height:195px;
+            opacity: 0.4;
+            z-index:1;
+            cursor:pointer;
+        }
+            #eight_image_container .animations img {
+                width:100%;
+            }
+
+        #eight_image_container .img1 {
+            left:180px;
+            top:528px;           
+        }
+        #eight_image_container .img2 {
+            left:180px;
+            top:288px;
+        }
+        #eight_image_container .img3 {
+            left:428px;
+            top:145px;
+        }
+        #eight_image_container .img4 {
+            left:686px;
+            top:145px;
+        }
+
+        #eight_image_container .img5 {
+            left:920px;
+            top:523px;
+        }
+
+        #eight_image_container .img6 {
+            left:920px;
+            top:288px;
+        }
+
+        #eight_image_container .img7 {
+            left:688px;
+            top:660px;
+        }
+
+        #eight_image_container .img8 {
+            left:420px;
+            top:660px;
+        }
+        
+        #eight_image_container .description {
+            position:absolute;
+            z-index:3;
+            width:200px;
+            padding-bottom:20px;
+            left: 225px;
+            top: 100px;
+            opacity: 0;
+            background:red;
+        }
+        
+
+        #eight_image_container .active {
+            opacity: 1;
+            z-index:10;
+        }
+
+        #item_page_content {
+            display:none;
+            position:absolute;
+            width:500px;
+            height:500px;
+            left: 20px;
+            bottom: 100px;
+            z-index:4;
+            background:blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="eight_image_container">
+
+        <div class="animations img1">
+            <img alt="" src="../images/8picutresCircle/1.png" />
+                <div class="description">
+                <h2>Sealion Two Speed</h2>
+                <p>Some description</p>
+                <a href="/reels/sealion-lefty-jigging-reel-two-speed.html" title="">find out more</a>
+            </div>
+        </div>
+        
+        <div class="animations img2">
+            <img alt="" src="../images/8picutresCircle/2.png" />
+            <div class="description">
+                <h2>Sealion One Speed</h2>
+                <p>see this description sfjsifjsdfsdo dsfsioufiosdufuwr uewruwerup9we p9e </p>
+                <a href="/reels/sealion-lefty-jigging-reel-one-speed.html" title="">click here</a>
+            </div>
+        </div>
+        
+        <div class="animations img3"><img alt="" src="../images/8picutresCircle/3.png" /></div>
+
+        <div class="animations img4"><img alt="" src="../images/8picutresCircle/4.png" /></div>
+
+        <div class="animations img5"><img alt="" src="../images/8picutresCircle/5.png" /></div>
+
+        <div class="animations img6"><img alt="" src="../images/8picutresCircle/6.png" /></div>
+
+        <div class="animations img7"><img alt="" src="../images/8picutresCircle/7.png" /></div>
+
+        <div class="animations img8"><img alt="" src="../images/8picutresCircle/8.png" /></div>
+    </div>
+
+    <div id="item_page_content"></div>
+
+    <script>
+        //$(document).ready(function () {
+            init1();
+
+            /*sealion_content images*/
+            function init1() {                        
+                    $("#eight_image_container .animations").click(function (e) {
+                        e.preventDefault();
+                        if (!$(this).hasClass('active')) {
+                            moveImgToCenter(this);
+                        }
+                    });
+
+                    $("#eight_image_container .animations a").click(function (e) {
+                        e.preventDefault();
+                            GoToItemPage(this);
+                    });
+            }
+
+            function moveImgToCenter(selector) {
+
+                var img = selector;
+
+                //Return image to Initial position
+                var active = $('#eight_image_container .active');
+
+                if (active.length > 0) {
+                    var pos = active.data("initialPosition");
+                    var h = active.data("initialHeight");
+                    var w = active.data("initialWidth");
+
+                    active.animate({
+                        top: pos.top,
+                        left: pos.left,
+                        width: w,
+                        height: h
+                    });
+
+                    active.removeClass('active');
+
+                    var hideDescription = $('#eight_image_container .description');
+                    hideDescription.css('opacity', '0');
+                }
+
+                if (!$(img).hasClass('active')) {
+                    //first Save image initialPosition
+                    var initialPosition = $(img).position();
+                    $(img).data("initialPosition", initialPosition);
+
+                    var initialHeight = $(img).height();
+                    $(img).data("initialHeight", initialHeight);
+                    var initialWidth = $(img).width();
+                    $(img).data("initialWidth", initialWidth);
+
+                    $(img).animate({
+                        top: 325,
+                        left: 458,
+                        width: 224,
+                        height: 326
+                    }, 1000, "linear");
+                    $(img).addClass('active');
+
+                    $(img).find('.description').animate({//show description
+                        opacity: 1,
+                    }, 1000, "linear");
+                }          
+            }//moveImgToCenter   
+
+
+            function GoToItemPage(a) {
+                var href = a;
+                //alert(href);
+                //http://test.fishingreels.com.au:8082/reels/sealion-lefty-jigging-reel-two-speed.html
+                //ajaxload('href .product_page_bottom', '#item_page_content');
+                ajaxload('http://test.fishingreels.com.au:8082/reels/sealion-lefty-jigging-reel-two-speed.html', '#item_page_content');
+                //$('#eight_image_container .animations').fadeOut();
+            }
+
+            //load page with jQuery load
+            function ajaxload(link, selector) {//The fading techniques adjust the opacity
+                var selector1 = selector;
+                $(selector).load(link, function (responseTxt, statusTxt, xhr) {
+                    if (statusTxt == "success")
+                        //alert("External content loaded successfully!");
+                        $(selector1).fadeIn("fast");
+
+                    if (statusTxt == "error")
+                        alert("Error: " + xhr.status + ": " + xhr.statusText);
+                });
+            }
+            /*Ajax loader*/
+            $(document).ajaxStart(function () {
+                $('#loadingDiv').show();
+            }).ajaxStop(function () {
+                $('#loadingDiv').hide();
+            });
+     //   });//ready
+    </script>
+</body>
+</html>

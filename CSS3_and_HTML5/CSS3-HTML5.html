@@ -1,0 +1,599 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Test CSS3 & HTML5</title>
+    <link href="css/stye.css" rel="stylesheet" />
+    <script src="js/jQuery-v1.9.1.js"></script>
+    
+    <!-- jos primera mozes naci na 
+        http://coding.smashingmagazine.com/2010/05/27/css-three-connecting-the-dots/
+        http://www.smashingmagazine.com/learning-css3-useful-reference-guide/#a2
+         -->
+
+     <!-- If you're not using something like Modernizr but still want to include Video.JS before the closing body tag, you can add your own shiv. Include this in the head of your document:  -->
+    <script type="text/javascript">
+        document.createElement('video'); document.createElement('audio'); document.createElement('track');
+    </script>
+    <link href="//vjs.zencdn.net/4.9/video-js.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/4.9/video.js"></script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Test CSS3 & HTML5</h1>
+
+             <h2>1. Borders</h2>
+            <div class="border-radius">The border-radius property allows you to add rounded corners to elements.</div>
+            <div class="clear"></div>
+
+            <div class="box-shadow">box shadow</div>
+            <div class="clear"></div>
+
+            <p><b>Note:</b> Internet Explorer does not support the border-image property.</p>
+            <p>The border-image property specifies an image to be used as a border.</p>
+
+            <div id="round" class="border-image">Here, the image is tiled (repeated) to fill the area.</div>
+            <br>
+            <div id="stretch" class="border-image">Here, the image is stretched to fill the area.</div>
+
+            <p>Here is the image used:</p>
+            <img src="../images/border.png">
+
+        </div>
+        <div class="container">
+             <h2>2. CSS3 Backgrounds</h2>
+            
+            <ol>
+                <li>background-size (before CSS3, the background image size was determined by the actual size of the image)</li>
+                     <ul>
+                      <li>background-size:100% 100%; to completly streach the image to fil the element like div</li>
+                      <li>Green tea</li>
+                    </ul>
+                <li>background-origin</li>
+                <li>multiple background images</li>
+                <li>Support in IE 9+, Firefox, Chrome, Safari, and Opera support the new background properties.</li>
+            </ol>
+            <div class="clear"></div>
+
+            <h3>Background-origin</h3>       
+            <p>The background-origin property specifies the positioning area of the background images.</p>
+            <p>The background image can be placed within the content-box, padding-box, or border-box area.&nbsp; </p>
+            <img src="../images/background-origin.gif" />
+            <div class="clear"></div>
+
+            <p>background-origin:border-box:</p>
+            <div id="div1" class="background-origin">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            </div>
+            <br>
+            <p>background-origin:content-box:</p>
+            <div id="div2" class="background-origin">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            </div>
+            <div class="clear"></div>
+
+            <h3>CSS3 Multiple Background Images</h3>
+            
+            <div class="vbl">
+                <p class="desc">The different backgrounds get stacked atop where the first is closest to the viewer. They are separated by commas.</p>
+                <p class="cd"><code>background: <strong><b>1 </b>url(image1.png)</strong>, <strong><b>2 </b>url(image2.png)</strong>, <strong><b>3 </b>url(image3.png)</strong> <strong><b>4 </b>#383838</strong></code></p>
+                
+                <ul>
+                    <li><b>1</b> The first background image. This is the image that is closest to the viewer. Every background image can have the general values of the <a href="http://www.w3schools.com/css/pr_background.asp" class="c"><code>background</code></a> property, where the most important are <code>background-position</code> and <code>background-repeat</code>. By default they are positioned top left and get repeated at the x- and y-axis.</li>
+                    <li><b>2</b> The second background image, layered under the first one.</li>
+                    <li><b>3</b> The third background image which is the lowermost.</li>
+                    <li><b>4</b> The general background color of the element. Can be only set last, no comma preceded.</li>
+                </ul>
+                <div class="ex">
+                    <div><img src="http://www.css3files.com/wp-content/themes/css3files_v2/img/examp/background0.png" alt="Example"></div>
+                    <div class="liv" style="display: none;">Inspect me!<a href="#" title="What's that?">?</a></div>
+                    <p></p>
+                </div>
+                <p></p>
+            </div>
+            <div class="clear"></div>
+
+            <h2>CSS3 Multiple Background Images Example</h2>
+            <div class="weather"></div>
+
+
+        </div>
+
+        <div class="container">
+            <h2>3. CSS3 Text Effects</h2>
+
+                <h3>CSS3 Text-shadow</h3>
+            
+                <div class="text-shadow">Text-shadow effect!</div>
+            
+                <p><b>Note:</b> Internet Explorer 9 and earlier versions, does not support the text-shadow property.</p>
+
+                <h3>CSS3 Word Wrapping</h3>
+
+                <p class="word-wrapping"> This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+                <div class="clear"></div>
+        </div>
+
+        <div class="container">
+            <h1>4. CSS3 2D Transforms</h1>
+
+                <p>With CSS3 transform, we can move, scale, turn, spin, and stretch elements.</p>
+                <p>A transform is an effect that lets an element change shape, size and position.</p>
+                <img src="../images/transforms.gif" alt="CSS3 Transforms" width="635" height="124">
+
+                    <p>Chrome and Safari requires the prefix -webkit-.</p>
+                    <p><strong>Note:</strong> Internet Explorer 9 requires the prefix -ms-.</p>
+
+
+                <h2>2D Transforms</h2>
+
+                <ol>
+	                <li>translate()</li>
+                        <p>With the translate() method, the element moves from its current position, depending 
+                        on the parameters given for the left (X-axis) and the top (Y-axis) position:
+                        </p>
+                        #div2{
+                            transform:translate(50px,100px);
+                            -ms-transform:translate(50px,100px); /* IE 9 */
+                            -webkit-transform:translate(50px,100px); /* Safari and Chrome */
+                            }
+
+                    <li>rotate()</li>
+                    <p>With the rotate() method, the element rotates clockwise at a given degree. Negative values are allowed and rotates the element counter-clockwise.</p>
+                    <br>
+                    <div class="rotate-right">Hello. This is a rotated DIV element.</div>
+                    <div class="rotate-left">Hello. This is a rotated DIV element.</div>
+                    <br>
+
+	                <li>scale()</li>
+                        <p>With the scale() method, the element increases or decreases the size, depending 
+                        on the parameters given for the width (X-axis) and the height (Y-axis):
+                        </p>
+                            div
+                                {
+                                transform: scale(2,4);
+                                -ms-transform: scale(2,4); /* IE 9 */
+                                -webkit-transform: scale(2,4); /* Safari and Chrome */
+                                }
+
+	                <li>skew()</li>
+                        <p>With the skew() method, the element turns in a given angle, depending on the parameters given for the horizontal (X-axis) and the vertical (Y-axis) lines:</p>
+                        <div class="skew">Hello. This is a DIV element.</div>
+
+
+	                <li>matrix()</li>
+                        <p>The matrix() method combines all of the 2D transform methods into one.</p>
+                        <p>The matrix method take six parameters, containing mathematic functions, which allows you to: rotate, scale, move (translate), and skew elements.</p>
+                </ol>
+
+        </div>
+
+        <div class="container">
+            <h1>5. CSS3 3D Transforms</h1>
+        
+            <div style="height:80px;">
+			    <div onclick="rotateDIV()" id="rotate1" class="animated_div1" style="-webkit-transform: rotate(360deg);">2D rotate</div>
+			    <div onclick="rotateYDIV()" id="rotatey1" class="animated_div1" style="-webkit-transform: rotateY(360deg);">3D rotate</div>
+		    </div>
+
+            <p>With the rotateX() method, the element rotates around its X-axis at a given degree.</p>
+            <p>With the rotateY() method, the element rotates around its Y-axis at a given degree.</p>
+            <script>
+                <!--
+                    var x, y, n = 0, ny = 0, rotINT, rotYINT
+                    function rotateDIV() {
+                        x = document.getElementById("rotate1")
+                        clearInterval(rotINT)
+                        rotINT = setInterval("startRotate()", 10)
+                    }
+                    function rotateYDIV() {
+                        y = document.getElementById("rotatey1")
+                        clearInterval(rotYINT)
+                        rotYINT = setInterval("startYRotate()", 10)
+                    }
+                    function startRotate() {
+                        n = n + 1
+                        x.style.transform = "rotate(" + n + "deg)"
+                        x.style.webkitTransform = "rotate(" + n + "deg)"
+                        x.style.OTransform = "rotate(" + n + "deg)"
+                        x.style.MozTransform = "rotate(" + n + "deg)"
+                        if (n == 180 || n == 360) {
+                            clearInterval(rotINT)
+                            if (n == 360) { n = 0 }
+                        }
+                    }
+                    function startYRotate() {
+                        ny = ny + 1
+                        y.style.transform = "rotateY(" + ny + "deg)"
+                        y.style.webkitTransform = "rotateY(" + ny + "deg)"
+                        y.style.OTransform = "rotateY(" + ny + "deg)"
+                        y.style.MozTransform = "rotateY(" + ny + "deg)"
+                        if (ny == 180 || ny >= 360) {
+                            clearInterval(rotYINT)
+                            if (ny >= 360) { ny = 0 }
+                        }
+                    }
+                //-->
+                </script>
+        </div>
+
+        <div class="container">
+            <h1>6. CSS3 Transitions</h1>
+        
+            <p>With CSS3, we can add an effect when changing from one style to another, without using Flash animations or JavaScripts.</p>
+            <hr>
+            <p>Mouse over the element below:</p>
+            <div style="height:70px;">
+                <div class="animated_div_transitions">CSS3<br><span style="font-size:50%;">Transition</span></div>
+            </div>
+            <div class="clear"></div>
+            <hr>
+            <div class="transitions1">The transition effect!</div>
+            <input type="button" value="Start Transition" id="button" class="button"/>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("#button").click(function () {
+                        //alert('zoki');
+                        $(".transitions1").toggleClass("transitions1-change");
+                    });
+                });
+
+                
+            </script>
+
+            <div class="clear"></div>
+            <div class="container">
+                <h1>7. CSS3 Animations</h1>
+
+                <p>When the animation is created in the @keyframe, bind it to a selector, otherwise the animation will have no effect.</p>
+                <p>Bind the animation to a selector by specifying at least these two CSS3 animation properties:</p>
+                <p><b>Note: </b>You must define the name and the duration of the animation. If duration is omitted, the animation will not run, because the default value is 0.</p>
+                <p><b>Note:</b> This example does not work in Internet Explorer 9 and earlier versions.</p>
+                <ul>
+	                <li>Specify the name of the animation</li>
+	                <li>Specify the duration of the animation</li>
+                </ul>
+
+                <h2>What are Animations in CSS3?</h2>
+                <p>An animation is an effect that lets an element gradually change from one style to another.</p>
+                <p>You can change as many styles you want, as many times you want.</p>
+                <p>Specify when the change will happen in percent, or the keywords "from" and "to", which is the same as 0% and 100%.</p>
+                <p>0% is the beginning of the animation, 100% is when the animation is complete.</p>
+                <p>For best browser support, you should always define both the 0% and the 100% selectors.</p>
+
+                <div class="animation1"></div>
+                <div class="clear"></div>
+                <hr>
+
+                <div class="animation2"></div>
+                <div class="clear"></div>
+                
+                <h2>CSS3 Animation Properties</h2>
+                <div class="code notranslate"><div>animation: <i>name duration timing-function delay iteration-count direction</i>;</div></div>
+                <table class="reference notranslate">
+                  <tbody>
+                  <tr>
+                    <th width="28%" align="left">Property</th>
+                    <th width="67%" align="left">Description</th>
+                    <th width="5%" align="left">CSS</th>
+                  </tr>
+                  <tr>
+                    <td><a href="/cssref/css3_pr_animation-keyframes.asp">@keyframes</a></td>
+                    <td>Specifies the animation</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td><a href="/cssref/css3_pr_animation.asp">animation</a></td>
+                    <td>A shorthand property for all the the animation properties, except 
+	                the animation-play-state property</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td><a href="/cssref/css3_pr_animation-name.asp">animation-name</a></td>
+                    <td>Specifies the name of the @keyframes animation</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td><a href="/cssref/css3_pr_animation-duration.asp">animation-duration</a></td>
+                    <td>Specifies how many seconds or milliseconds an animation takes to 
+	                complete one 
+	                cycle. Default 0</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td><a href="/cssref/css3_pr_animation-timing-function.asp">animation-timing-function</a></td>
+                    <td>Describes how the animation will progress over one cycle of its duration. 
+	                Default "ease"</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td><a href="/cssref/css3_pr_animation-delay.asp">animation-delay</a></td>
+                    <td>Specifies when the animation will start. Default 0</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td><a href="/cssref/css3_pr_animation-iteration-count.asp">animation-iteration-count</a></td>
+                    <td>Specifies the number of times an animation is played. Default 1</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td><a href="/cssref/css3_pr_animation-direction.asp">animation-direction</a></td>
+                    <td>Specifies whether or not the animation should play in reverse on 
+	                alternate cycles. Default "normal"</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td><a href="/cssref/css3_pr_animation-play-state.asp">animation-play-state</a></td>
+                    <td>Specifies whether the animation is running or paused. Default "running"</td>
+                    <td>3</td>
+                  </tr>
+                  </tbody>
+                </table>
+
+                <h4>Run an animation called animation3, with all the animation properties set:</h4>
+                <div class="animation3"></div>
+                <div class="clear"></div>
+
+                <h2>CSS3 animation-timing-function</h2>
+
+                <p>The animation-timing-function specifies the speed curve of the animation.</p>
+                <p>The speed curve defines the TIME an animation uses to change from one set of CSS styles to another.</p>
+                <table class="tecspec">
+                  <tbody><tr>
+                    <th align="left" width="24%">Default value:</th>
+                    <td width="75%">ease</td>
+                  </tr>
+	                <tr>
+                    <th align="left">Inherited:</th>
+                    <td>no</td>
+                  </tr>
+	                <tr>
+                    <th align="left">Version:</th>
+                    <td>CSS3</td>
+                  </tr>
+	                <tr>
+                    <th align="left">JavaScript syntax:</th>
+                    <td>  <i>object</i>.style.animationTimingFunction="linear"</td>
+                  </tr>
+	             </tbody>
+               </table>
+
+                <h2>Syntax</h2>
+                <div class="code notranslate"><div>animation-timing-function: <i>value</i>;</div></div>
+
+                <table class="reference notranslate">
+                    <tbody><tr>
+                    <th align="left" width="20%">Value</th>
+                    <th align="left" width="68%">Description</th>
+                    <th align="left">Play it</th>                
+                    </tr>  
+                    <tr>
+                    <td>linear</td>
+                    <td>The animation has the same speed from start to end</td>
+	                <td><a target="_blank" class="playitbtn" href="playit.asp?filename=playcss_animation-timing-function&amp;preval=linear">Play it »</a></td>			    
+                    </tr>
+                    <tr>
+                    <td>ease</td>
+                    <td>Default. The animation has a slow start, then fast, before it ends 
+	                slowly</td>
+	                <td><a target="_blank" class="playitbtn" href="playit.asp?filename=playcss_animation-timing-function&amp;preval=ease">Play it »</a></td>			    	
+                    </tr>
+	                <tr>
+                    <td>ease-in</td>
+                    <td>The animation has a slow start</td>
+	                <td><a target="_blank" class="playitbtn" href="playit.asp?filename=playcss_animation-timing-function&amp;preval=ease-in">Play it »</a></td>			    	
+                    </tr>
+	                <tr>
+                    <td>ease-out</td>
+                    <td>The animation has a slow end</td>
+	                <td><a target="_blank" class="playitbtn" href="playit.asp?filename=playcss_animation-timing-function&amp;preval=ease-out">Play it »</a></td>			    	    
+                    </tr>
+	                <tr>
+                    <td>ease-in-out</td>
+                    <td>The animation has both a slow start and a slow end</td>
+	                <td><a target="_blank" class="playitbtn" href="playit.asp?filename=playcss_animation-timing-function&amp;preval=ease-in-out">Play it »</a></td>			    	    
+                    </tr>
+	                <tr>
+                    <td>cubic-bezier(<i>n</i>,<i>n</i>,<i>n</i>,<i>n</i>)</td>
+                    <td>Define your own values in the cubic-bezier function<br>
+	                Possible values are numeric values from 0 to 1</td>
+	                <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <hr>
+
+                <div id="animation-div1" class="animations">linear</div>
+                <div id="animation-div2" class="animations">ease</div>
+                <div id="animation-div3" class="animations">ease-in</div>
+                <div id="animation-div4" class="animations">ease-out</div>
+                <div id="animation-div5" class="animations">ease-in-out</div>
+
+                <script>
+                    $(document).ready(function () {
+
+                        var imgs = $('.animations'),
+                                    playState = '-webkit-animation-play-state';
+
+                        imgs.click(function () {
+                            imgs.css(playState, function (i, v) {
+                                return v === 'paused' ? 'running' : 'paused';
+                            });
+                            $('body').toggleClass('paused', $(this).css(playState) === 'paused');
+                        });
+
+                    });
+
+
+            </script>
+
+                <h1>CSS3 <span class="color_h1">animation-direction</span> Property</h1>
+                    <div class="code notranslate"><div>animation-direction: <i>value</i>;</div></div>
+                    <table class="reference notranslate">
+                      <tbody><tr>
+                        <th align="left" width="20%">Value</th>
+                        <th align="left" width="68%">Description</th>
+                        <th align="left">Play it</th>                
+                      </tr>  
+                      <tr>
+                        <td>normal</td>
+                        <td>Default value. The animation should be played as normal</td>
+	                    <td><a target="_blank" class="playitbtn" href="playit.asp?filename=playcss_animation-direction&amp;preval=normal">Play it »</a></td>			    
+                      </tr>
+                      <tr>
+                        <td>alternate</td>
+                        <td>The animation should play in reverse on alternate cycles</td>
+	                    <td><a target="_blank" class="playitbtn" href="playit.asp?filename=playcss_animation-direction&amp;preval=alternate">Play it »</a></td>			        
+                      </tr>
+                      </tbody>
+                    </table>
+
+                <h2>CSS3 <span class="color_h1">animation-play-state </span> Property</h2>
+                <div class="code notranslate"><div>animation-play-state: paused|running;</div></div>
+            <hr>
+            </div>
+
+        
+        <div class="clear"></div>
+        <div class="container">
+            <h1>CSS3 <span class="color_h1">Multiple Columns</span></h1>
+
+
+            <p>In this chapter you will learn about the following multiple column properties:</p>
+            <ul>
+	            <li>column-count</li>
+	            <li>column-gap</li>
+	            <li>column-rule</li>
+            </ul>    
+
+            <h2>New Multiple Columns Properties</h2>
+            <table class="reference notranslate">
+              <tbody><tr>
+                <th width="28%" align="left">Property</th>
+                <th width="67%" align="left">Description</th>
+                <th width="5%" align="left">CSS</th>
+              </tr>
+              <tr>
+                <td><a href="/cssref/css3_pr_column-count.asp">column-count</a></td>
+                <td>Specifies the number of columns an element should be divided into</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/cssref/css3_pr_column-fill.asp">column-fill</a></td>
+                <td>Specifies how to fill columns</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/cssref/css3_pr_column-gap.asp">column-gap</a></td>
+                <td>Specifies the gap between the columns</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/cssref/css3_pr_column-rule.asp">column-rule</a></td>
+                <td>A shorthand property for setting all the column-rule-* properties</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/cssref/css3_pr_column-rule-color.asp">column-rule-color</a></td>
+                <td>Specifies the color of the rule between columns</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/cssref/css3_pr_column-rule-style.asp">column-rule-style</a></td>
+                <td>Specifies the style of the rule between columns</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/cssref/css3_pr_column-rule-width.asp">column-rule-width</a></td>
+                <td>Specifies the width of the rule between columns</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/cssref/css3_pr_column-span.asp">column-span</a></td>
+                <td>Specifies how many columns an element should span across</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/cssref/css3_pr_column-width.asp">column-width</a></td>
+                <td>Specifies the width of the columns</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><a href="/cssref/css3_pr_columns.asp">columns</a></td>
+                <td>A shorthand property for setting column-width and column-count</td>
+                <td>3</td>
+              </tr>
+            </tbody>
+
+            </table>
+
+            <p><b>Note:</b> Internet Explorer 9, and earlier versions, does not support the column-rule property.</p>
+
+            <div class="newspaper">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
+            </div>
+
+            <h1>Add video to website from youtube</h1>
+            
+            <div class="youtube_continer">
+					<object width="25%" height="260">
+					  <param name="movie" value="https://www.youtube.com/v/EOynDZA2xcM?rel=0&showinfo=0&autohide=1&color=white&iv_load_policy=3&version=3"></param>
+					  <param name="allowFullScreen" value="true"></param>
+					  <param name="allowScriptAccess" value="always"></param>
+					  <embed src="https://www.youtube.com/v/EOynDZA2xcM?rel=0&showinfo=0&autohide=1&color=white&iv_load_policy=3&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="25%" height="260"></embed>
+					</object>
+
+					  <object width="25%" height="260">
+					  <param name="movie" value="https://www.youtube.com/v/iXBqeAgt3mo?rel=0&showinfo=0&autohide=1&color=white&iv_load_policy=3&version=3"></param>
+					  <param name="allowFullScreen" value="true"></param>
+					  <param name="allowScriptAccess" value="always"></param>
+					  <embed src="https://www.youtube.com/v/iXBqeAgt3mo?rel=0&showinfo=0&autohide=1&color=white&iv_load_policy=3&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="25%" height="260"></embed>
+					</object>
+
+					<object width="25%" height="260">
+					  <param name="movie" value="https://www.youtube.com/v/f97yytGW8e8?rel=0&showinfo=0&autohide=1&color=white&iv_load_policy=3&version=3"></param>
+					  <param name="allowFullScreen" value="true"></param>
+					  <param name="allowScriptAccess" value="always"></param>
+					  <embed src="https://www.youtube.com/v/f97yytGW8e8?rel=0&showinfo=0&autohide=1&color=white&iv_load_policy=3&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="25%" height="260"></embed>
+					</object>
+
+					<object width="24%" height="260">
+					  <param name="movie" value="https://www.youtube.com/v/_j1jR82yff0?rel=0&showinfo=0&autohide=1&color=white&iv_load_policy=3&version=3"></param>
+					  <param name="allowFullScreen" value="true"></param>
+					  <param name="allowScriptAccess" value="always"></param>
+					  <embed src="https://www.youtube.com/v/_j1jR82yff0?rel=0&showinfo=0&autohide=1&color=white&iv_load_policy=3&version=3" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="24%" height="260"></embed>
+					</object>
+				</div>
+
+
+                <h1>Add HTML video from local source</h1>
+                
+            <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered"
+              controls preload="auto" width="640" height="264"
+              poster="http://video-js.zencoder.com/oceans-clip.png"
+              data-setup='{"example_option":true}'>
+                 <source src="videos/video1.mp4" type='video/mp4' />
+                 <source src="videos/video1.webm" type='video/webm' />
+                 <source src="videos/video1.ogv" type='video/ogg' />
+             <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+            </video>
+            
+            <video id="sampleMovie" width="640" height="360" preload controls>
+	            <source src="videos/video1.mov" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+	            <source src="videos/video1.ogv" type='video/ogg; codecs="theora, vorbis"' />
+	            <source src="videos/video1.webm" type='video/webm; codecs="vp8, vorbis"' />
+            </video>
+        
+        
+        
+        </div>
+        
+            
+    </div><!-- wrapper-->
+
+   
+</body>
+</html>

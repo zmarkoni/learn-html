@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+	<script src="js/jQuery-v1.9.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#content-container").load("external-content.html");
+            });
+  
+            /*Ajax loader
+            $(document).ajaxStart(function () {
+                $('#loadingDiv').show();
+            }).ajaxStop(function () {
+                $('#loadingDiv').hide();
+            });
+            */
+        });
+    </script>
+    
+</head>
+<body>
+    <h1>Load content in a div from external link</h1>
+    <button>Get External Content</button>
+
+    <div id="content-container"></div>
+
+    <div class="u-flR iti-act-num">130808210264</div>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+/*grid by Zoran Markovic*/
+
+/* =Responsive 12 Column Grid
+    http://themeid.com/responsive-grid/
+-------------------------------------------------------------- */
+/* =Globals
+-------------------------------------------------------------- */
+
+
+.front-page #wrapper {
+	background-color: transparent;
+	border: none;
+	margin: 20px auto 20px auto;
+	padding: 0;
+}
+
+#header {
+	margin: 0;
+}
+
+#footer {
+	clear: both;
+	margin: 0 auto;
+	max-width: 960px;
+	padding: 0 25px 0 25px;
+}
+
+#footer-wrapper {
+	margin: 0;
+	padding: 0;
+}
+
+/*======================= Grid ================ */
+#container {
+	margin: 0 auto;
+	max-width: 960px;
+	padding: 0px 25px;
+    background:white;
+}
+
+#wrapper {
+	clear: both;
+	position: relative;
+    float:left;
+    width:100%;
+}
+
+.grid {
+    display:block;
+    clear:none;
+	float: left;
+	margin-bottom: 20px;	
+}
+
+/*width in percent*/
+.width-25, 
+.width-30, 
+.width-40, 
+.width-50, 
+.width-60,
+.width-70,
+.width-75{
+    margin-left: 2.127659574468%;
+}
+
+
+.width-25 { width: 23.404255319149%;}
+.width-30 { width: 31.914893617021%;}
+.width-40 { width: 40.425531914894%;}
+
+.width-50 { width: 48.936170212766%;}
+
+.width-60 { width: 57.446808510638%;}
+.width-70{ width: 65.957446808511%;}
+.width-75{ width: 74.468085106383%;}
+
+.width-100{
+    width: 100%; 
+    margin:0!important;
+    padding:0!important
+}
+
+
+.fit {
+    margin-left: 0!important;
+    clear: left;  
+}
+*:first-child+html .fit{ zoom: 1; } /* IE7 */
+
+/*contene in a div*/
+.grid p {
+    background:silver;
+    width:100%;
+}
+
+/* =Visibility
+-------------------------------------------------------------- */
+.hidden {
+	visibility: hidden;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.none {
+	display: none;
+}
+
+.hide-desktop {
+	display: none;
+}
+
+.show-desktop {
+	display: block;
+}
+
+/* =Responsive Images
+-------------------------------------------------------------- */
+img {
+	-ms-interpolation-mode: bicubic;
+	border: 0;
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+.ie8 img {
+	height: auto; 
+	width: auto\9; 
+}
+
+.ie8 img.size-large {
+	max-width: 60%;
+	width: auto;
+}
+
+/* =Responsive Videos
+-------------------------------------------------------------- */
+video {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
+
+/* =Responsive Embeds/Objects
+-------------------------------------------------------------- */
+embed,
+object {
+	max-width: 100%;
+}
+
+svg:not(:root) {
+	overflow: hidden;
+}
+
+/* =Responsive (Mobile) Design
+-------------------------------------------------------------- */
+
+@media screen and (max-width: 650px) {
+
+    body {
+    }
+
+    #logo {
+        float: none;
+        margin: 0;
+        text-align: center;
+    }
+
+    /*rest all width-s*/
+    .grid,
+    .grid-right {
+        float: left;
+    }
+
+    /*Grid radi i bez ovoga*/
+    .width-25, 
+    .width-30, 
+    .width-40, 
+    .width-50, 
+    .width-60,
+    .width-70,
+    .width-75
+    { 
+        margin-right:0;
+        width:100%;
+
+    }
+
+    pre { margin:0;}/*elements in a div in grid*/
+
+}

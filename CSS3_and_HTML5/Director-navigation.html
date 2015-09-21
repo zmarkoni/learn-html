@@ -1,0 +1,1026 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Flatiron Director Sample</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js" ></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
+
+    <script src="js/director.js"></script>
+    <script>
+        
+        function openContainerById(itemId, animate) {
+            var container = $("#" + itemId);
+
+            //$container.addClass("myClass");
+
+            var new_scrollTop = container.position().top;
+
+            /*
+            if (itemId == 1) {
+                new_scrollTop += 966;
+            } else if (itemId == 2) {
+                new_scrollTop += 1080;
+            } else if (itemId == 3) {
+                new_scrollTop += 1060;
+            } else if (itemId == 4) {
+                new_scrollTop += 1038;
+            }
+            */
+
+            moveScrollTo(new_scrollTop, animate);
+        }
+
+
+        function moveScrollTo(pos, animate) {
+            $('html,body').stop();
+            if (animate) {
+                $('html,body').animate(
+                    {
+                        scrollTop: pos
+                    },
+                    {
+                        queue: false, easing: 'easeInOutExpo', duration: 1500, complete: function () {
+                            clickedScrolling = false;
+                        }
+                    }
+                );
+            } else {
+                $('html,body').scrollTop(pos);
+            }
+        }
+
+
+    </script>
+    
+    <script>
+
+        var section = function (sectionId, subSectionId) {
+
+            var itemId = 'section' + sectionId;
+            //alert(itemId);
+            
+            openContainerById(itemId, true); //call function  openContainerById
+
+            
+            $('.dropdown a[id^="menu-item"]').each(function () {
+                $(this).removeClass("active");
+            });
+
+            $(this).addClass('active');
+            
+            if (subSectionId) {
+                alert(subSectionId);
+
+                if (subSectionId == "trolling") {
+                    alert(subSectionId);
+                }
+            }
+        };
+
+        var books = function () { console.log("books"); };
+
+        var viewBook = function (bookId) {
+            console.log("viewBook: bookId is populated: " + bookId);
+            alert("viewBook: bookId is populated: " + bookId);
+        };
+
+        var wildcard = function (route) {
+            console.log("Wildcard at: " + route);
+        };
+
+        var listener = function () {
+            console.log("Listener at: " + window.location);
+        };
+
+        /*define routes*/
+        var routes = {
+            
+            '/section/:sectionId': section,
+            '/section/:sectionId/:subSectionId': section,
+            '/books': [books, function () { console.log("An inline route handler."); }],
+            '/books/view/:bookId': viewBook
+        };
+
+        var router = Router(routes);
+        router.configure({ on: listener });
+        router.init();
+
+
+    </script>
+</head>
+<body>
+    <header>
+<div class="header_up"> 
+    <a class="logo" href="http://test.fishingreels.com.au:8082/" title="Magento Commerce">
+             <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn//images/logo.png" alt="Magento Commerce">
+   </a>
+   <h1 class="header-title">Maxel</h1>
+   <div class="center"> 
+    
+    <nav>
+        <div class="main_nav"><ul class="ul-level1">
+     <li class="nav-1">
+         <a class="parent" href="#"><span>Shop</span></a>                       
+             <ul class="dropdown ul-level2">
+                 <li class="first">
+                     <a class="link active" id="menu-item-0" href="#/section/0"><span>home</span></a>
+                 </li>
+                 <li>
+                     <!--<a class="link" id="menu-item-1" href=""><span>reels</span></a>-->
+                     <a class="link" id="menu-item-1" href="#/section/1"><span>reels</span></a>
+                     <a class="link-view-more parent" href="#"><span>for mobile</span></a>
+                     <ul class="ul-level3">
+                             							
+                                     <li><a href="#/section/1/trolling"><span>Trolling</span></a></li>							
+                             							
+                                     <li><a href="http://test.fishingreels.com.au:8082/reels/jigging.html"><span>Jigging</span></a></li>							
+                             					
+                     </ul>	
+                 </li>
+
+                 <li>
+                    <a class="link" id="menu-item-2" href="#/section/2"><span>rods</span></a>
+                    <a class="link-view-more parent" href="#"><span>for mobile</span></a>
+                    <ul class="ul-level3">
+                                                                <li><a href="http://test.fishingreels.com.au:8082/rods/seawolf-stand-up-trolling-rods.html"><span>SEAWOLF STAND UP TROLLING RODS</span></a></li>							
+                                                                <li><a href="http://test.fishingreels.com.au:8082/rods/sealion-limited-jigging-rods.html"><span>SEALION LIMITED JIGGING RODS</span></a></li>							
+                                                                <li><a href="http://test.fishingreels.com.au:8082/rods/sealion-custom-jigger-blanks.html"><span>SEALION CUSTOM JIGGER BLANKS</span></a></li>							
+                                                                <li><a href="http://test.fishingreels.com.au:8082/rods/transformer-light-jigging-rods.html"><span>TRANSFORMER LIGHT JIGGING RODS </span></a></li>							
+                                                                <li><a href="http://test.fishingreels.com.au:8082/rods/transformer-special-jigging-blanks.html"><span>TRANSFORMER SPECIAL JIGGING BLANKS</span></a></li>							
+                                                                <li><a href="http://test.fishingreels.com.au:8082/rods/transformer-gt-rods.html"><span>TRANSFORMER GT RODS</span></a></li>							
+                                                                <li><a href="http://test.fishingreels.com.au:8082/rods/transformer-live-bait-special-trolling.html"><span>TRANSFORMER LIVE BAIT SPECIAL trolling</span></a></li>							
+                            					
+                    </ul>	
+                 </li> 
+
+                 <li>
+                    <a class="link" id="menu-item-3" href="#/section/3"><span>custom parts</span></a>
+                    <a class="link-view-more parent" href="#"><span>for mobile</span></a>
+                    <ul class="ul-level3">
+                            					
+                    </ul>	
+                 </li>
+
+                 <li>
+                    <a class="link" id="menu-item-4" href="#/section/4"><span>accessories</span></a>
+                    <a class="link-view-more parent" href="#"><span>for mobile</span></a>
+                    <ul class="ul-level3">
+                                                                <li><a href="http://test.fishingreels.com.au:8082/custom-parts/custom-spool.html"><span>CUSTOM SPOOL</span></a></li>							
+                                                                <li><a href="http://test.fishingreels.com.au:8082/custom-parts/custom-handle.html"><span>CUSTOM HANDLE </span></a></li>							
+                                                                <li><a href="http://test.fishingreels.com.au:8082/custom-parts/custom-knob.html"><span>CUSTOM KNOB</span></a></li>							
+                            					
+                    </ul>	
+                 </li>
+
+                 <li>
+                    <a class="link" id="menu-item-5" href="#/section/5"><span>apparel</span></a>
+                     <a class="link-view-more parent" href="#"><span>for mobile</span></a>
+                     <ul class="ul-level3">
+                                                                  <li><a href="http://test.fishingreels.com.au:8082/accessories/survivor-carbon-game-harness-system.html"><span>Survivor Carbon Game Harness System</span></a></li>							
+                                                                  <li><a href="http://test.fishingreels.com.au:8082/accessories/aluminum-fighting-belt.html"><span>Aluminium Fighting Belt</span></a></li>							
+                                                                  <li><a href="http://test.fishingreels.com.au:8082/accessories/fishing-grip-scale.html"><span>Fishing Grip Scale</span></a></li>							
+                                                                  <li><a href="http://test.fishingreels.com.au:8082/accessories/reel-handle-knobs.html"><span>Reel Handle Knobs</span></a></li>							
+                                                                  <li><a href="http://test.fishingreels.com.au:8082/accessories/rod-clamp-to-support-maxel-reels-only.html"><span>Rod Clamp ( To Support Maxel Reels Only )</span></a></li>							
+                                                                  <li><a href="http://test.fishingreels.com.au:8082/accessories/rod-holders.html"><span>Rod Holders</span></a></li>							
+                                                                  <li><a href="http://test.fishingreels.com.au:8082/accessories/trolling-gear.html"><span>Trolling Gear</span></a></li>							
+                             					
+                     </ul>	
+                 </li>
+                 <li class="last">
+                         <a class="link" id="menu-item-6" href="#/section/6"><span>dealers</span></a>
+                         <a class="link-view-more parent" href="#"><span>for mobile</span></a>
+                         <ul class="ul-level3">
+                                                                          <li><a href="http://test.fishingreels.com.au:8082/apparels/3d-hats.html"><span>3D HATS</span></a></li>							
+                                                                          <li><a href="http://test.fishingreels.com.au:8082/apparels/mesh-sunvisor.html"><span>MESH SUNVISOR</span></a></li>							
+                                                                          <li><a href="http://test.fishingreels.com.au:8082/apparels/short-sleeve-t-shirts.html"><span>SHORT SLEEVE T SHIRTS </span></a></li>							
+                                                                          <li><a href="http://test.fishingreels.com.au:8082/apparels/quick-dry-long-sleeve-t-shirts.html"><span>QUICK DRY LONG SLEEVE T SHIRTS</span></a></li>							
+                                                                          <li><a href="http://test.fishingreels.com.au:8082/apparels/logo-stickers.html"><span>LOGO STICKERS</span></a></li>							
+                                                                          <li><a href="http://test.fishingreels.com.au:8082/apparels/posters.html"><span>POSTERS</span></a></li>							
+                                 					
+                         </ul>	
+                 </li>           
+             </ul><!-- dropdown -->  
+     </li>
+
+     <!--<li class="nav-2"><a href=""><span></span></a></li>-->
+     <!--<li class="nav-3"><a class="level-top"href=""><span></span></a></li>-->
+
+</ul><!-- mobile_nav -->
+</div>
+    </nav>	
+    
+    <div class="social-links">
+       <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn//images/customImages/header_social.png" alt="">           
+    </div>
+       
+    <div class="login">
+					  <!-- Code to display if user is not logged in -->
+													                                                            <div class="account">
+                                                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn//images/customImages/log_in_img.png" alt="">
+                                                                <a href="http://test.fishingreels.com.au:8082/customer/account/login/" title="Create an account or Login "><span class="log_in"> log in</span></a>
+                                                            </div>
+																												<li class=" last"><a class="zoki_hide" href="http://test.fishingreels.com.au:8082/wishlist/" title="My Wishlist">My Wishlist</a></li>
+																		
+				
+<script>
+
+
+    $(document).ready(function () {
+        var ww = document.body.clientWidth;
+
+        if (ww > 640) {
+            $('.trigger').mouseenter(function () {
+                $j("#my-account-menu").show();
+            });
+
+            $('#my-account-menu').mouseleave(function () {
+                $j(this).hide();
+            });
+        } else {
+            $('#my-account .trigger').removeClass('trigger');
+
+
+        }
+    });
+
+</script></div>		
+    
+  </div><!-- center -->
+</div><!-- header_up -->	
+</header>
+
+    <div id="parallax-wrapper" class="pane">
+        <!-- using parallax.js and parallax.css -->
+        <section id="section0" class="parallax" data-speed="10" data-type="background" data-offsety="0" style="background-position: 50% -44.8px;">
+            <!-- Big Banner with Sliderkit slider -->
+            <div class="sliderkit big_banner" style="display: block;">
+                <div class="sliderkit-panels">
+                    <div class="sliderkit-btn sliderkit-go-btn sliderkit-go-prev"><a href="#" title="Previous"><span>Previous</span></a></div>
+                    <div class="sliderkit-btn sliderkit-go-btn sliderkit-go-next"><a href="#" title="Next"><span>Next</span></a></div>
+
+                    <div class="sliderkit-panel sliderkit-panel-active" style="display: block;">
+                        <a href="/rod-reel-fishing-combos/jigging-kingfish-rod-reel-combos.html">
+                            <img class="empty_image" src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-big-banner/desktop/big_banner_img1.jpg" image_name="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-big-banner/desktop/big_banner_img1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="sliderkit-panel" style="display: none;">
+                        <a href="/fishing-camping-clothing-apparel/tournament-tops.html">
+                            <img class="empty_image" src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-big-banner/desktop/big_banner_img2.jpg" image_name="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-big-banner/desktop/big_banner_img2.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="sliderkit-panel" style="display: none;">
+                        <a href="/rod-reel-fishing-combos/soft-plastics-bream-trout-rod-reel-fishing-combos.html">
+                            <img class="empty_image" src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-big-banner/desktop/big_banner_img3.jpg" image_name="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-big-banner/desktop/big_banner_img3.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="sliderkit-panel" style="display: none;">
+                        <a href="/fishing-reels/big-game-2-speed-lever-drag-reels.html">
+                            <img class="empty_image" src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-big-banner/desktop/big_banner_img4.jpg" image_name="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-big-banner/desktop/big_banner_img4.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- // end of Big Banner -->
+
+
+
+        </section>
+
+        <section id="section1" class="parallax" data-speed="10" data-type="background" data-offsety="90" style="background-position: 50% 45.2px;">
+            <!-- Start contentslider-std -->
+            <div id="reel-slider" class="sliderkit contentslider-std" style="display: block;">
+                <!-- sliderkit-nav -->
+                <!--<div id="slide_left" class="sliderkit-btn sliderkit-go-btn sliderkit-go-prev"><a href="#" title="Previous"><span>Back</span></a></div>-->
+                <!--<div id="slide_right" class="sliderkit-btn sliderkit-go-btn sliderkit-go-next"><a href="#" title="Next"><span>See our reels</span></a></div>-->
+                <div class="sliderkit-panels">
+                    <!-- reel-home slide0 -->
+                    <div class="sliderkit-panels-wrapper" style="position: relative;">
+                        <div class="sliderkit-panel home_slide sliderkit-panel-active" style="display: block;">
+                            <h2 class="section_title">Reel Technology</h2>
+                            <div class="left">
+                                <img class="test_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/reel_tehnology.png" alt="">
+                                <!--
+									<p class="text-box">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+									</p>
+									<div id="reel-img" data-0="left:340px;" data-1100="left:-340px;" class="skrollable rendered " style="left: 340px;">
+										<img src="http://test.fishingreels.com.au:8082/skin/frontend/base/default/images/customImages/reel_technology.png" alt="" />
+									</div>
+									<p class="text-box">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+									</p>
+								-->
+                            </div>
+                            <div class="right">
+                                <div class="sliderkit-nav">
+                                    <div class="sliderkit-nav-clip">
+                                        <ul>
+                                            <li class="nav_box sliderkit-selected" style="display: none;"><a title="[link title]" href="# ">slide0</a></li>
+                                            <li class="nav_box"><a title="[link title]" href="#">
+                                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/jigging_link.png" alt=""></a></li>
+                                            <li class="nav_box"><a title="[link title]" href="#/section/1/trolling">
+                                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/trolling_link.png" alt=""></a></li>
+                                            <!--	
+                                <li class="nav_box"><a href="#" title="[link title]">
+                                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/teaser_link.png" alt="" /></a></li>
+                                <li class="nav_box"><a href="#" title="[link title]">
+                                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/downrigger_link.png" alt="" /></a></li>
+								-->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- sliderkit-nav -->
+                            </div>
+                        </div>
+                        <div id="jigging-reels" class="sliderkit-panel slide" style="display: none;">
+                            <div class="sliderkit-nav back_button">
+                                <div class="sliderkit-nav-clip">
+                                    <ul>
+                                        <li><a title="" href="#">&lt;&lt; Back</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3 class="title slide_title">jigging reels</h3>
+                            <div class="loadingDiv" style="display: none;">
+                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/loader.gif" alt=""></div>
+                            <div id="sealion" class="left ">
+                                <h4 id="sealion_button" class="title_button first_click">
+                                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/sealion_button.png" alt=""></h4>
+                                <img class="test_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/sealion_section.png" alt="" style="">
+                            </div>
+                            <div id="transformer" class="right ">
+                                <h4 id="transformer_button" class="title_button first_click">
+                                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/transformer_button.png" alt=""></h4>
+                                <img class="test_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/transformer_section.png" alt="" style="">
+                            </div>
+                            <!-- Absolute content insert with jQuer load()-->
+                            <div id="sealion_content_box" style="">&nbsp;</div>
+                            <div id="transformer_content_box" style="">&nbsp;</div>
+                        </div>
+                        <div id="trolling-reels" class="sliderkit-panel slide" style="display: none;">
+                            <div class="sliderkit-nav back_button">
+                                <div class="sliderkit-nav-clip">
+                                    <ul>
+                                        <li><a title="" href="#">&lt;&lt; Back</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h3 class="title">trolling reel</h3>
+                            <div class="left">
+                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/sealion_section.png" alt=""></div>
+                            <div class="right">
+                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/transformer_section.png" alt=""></div>
+                        </div>
+                    </div>
+                    <!-- slide1 reel-static-block -->
+
+                    <!-- slide2 -->
+
+                    <!-- slide3 -->
+                    <!--
+            <div class="sliderkit-panel slide">
+				<div class="sliderkit-nav back_button">
+					<div class="sliderkit-nav-clip">
+						<ul>
+							<li><a href="#" title=""><< Back</a></li>
+						</ul>
+					</div>
+				</div>
+                <h3 class="title">teaser reel</h3>
+                <div class="left">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/sealion_section.png" alt="" />
+                </div>
+
+                <div class="right">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/transformer_section.png" alt="" />
+                </div>
+            </div>
+			-->
+                    <!-- slide4 -->
+                    <!--
+            <div class="sliderkit-panel slide">
+				<div class="sliderkit-nav back_button">
+					<div class="sliderkit-nav-clip">
+						<ul>
+							<li><a href="#" title=""><< Back</a></li>
+						</ul>
+					</div>
+				</div>
+                <h3 class="title">downrigger reel</h3>
+                <div class="left">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/sealion_section.png" alt="" />
+                </div>
+
+                <div class="right">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/transformer_section.png" alt="" />
+                </div>
+            </div>
+			-->
+                </div>
+                <!-- sliderkit-panels -->
+            </div>
+            <!-- #reel-slider -->
+        </section>
+
+        <section id="section2" class="parallax" data-speed="10" data-type="background" data-offsety="181" style="background-position: 50% -5.099999999999994px;">
+            <!-- Start contentslider-std -->
+            <div id="rod-slider" class="sliderkit contentslider-std" style="display: block;">
+                <div class="sliderkit-panels">
+
+                    <!-- reel-home slide0 -->
+                    <div class="sliderkit-panels-wrapper" style="position: relative;">
+                        <div class="sliderkit-panel home_slide sliderkit-panel-active" style="display: block;">
+                            <h2 class="section_title">Rod Technology</h2>
+                            <div class="left">
+                                <img class="test_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/rod_tehnology.png" alt="">
+
+                                <div class="text-box">
+                                    <span>Rod Technology</span>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                                </div>
+                                <div class="text-box">
+                                    <span>Rod Technology</span>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                                </div>
+                                <div class="text-box">
+                                    <span>Rod Technology</span>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.</p>
+                                </div>
+                            </div>
+
+                            <div class="right">
+                                <div class="sliderkit-nav">
+                                    <div class="sliderkit-nav-clip">
+                                        <ul>
+                                            <li class="nav_box sliderkit-selected" style="display: none;"><a href="#" title="[link title]">slide0</a></li>
+
+                                            <li class="nav_box"><a href="#" title="[link title]">
+                                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/jigging_rods.png" alt=""></a>
+                                            </li>
+                                            <li class="nav_box"><a href="#" title="[link title]">
+                                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/trolling_rods.png" alt=""></a>
+                                            </li>
+                                            <li class="nav_box"><a href="#" title="[link title]">
+                                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/gt_rods.png" alt=""></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- sliderkit-nav -->
+                            </div>
+
+                        </div>
+                        <div id="jigging_rods" class="sliderkit-panel slide" style="display: none;">
+                            <div class="sliderkit-nav back_button">
+                                <div class="sliderkit-nav-clip">
+                                    <ul>
+                                        <li><a href="#" title="">&lt;&lt; Back</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3 class="title">jigging rods</h3>
+
+                            <div class="loadingDiv" style="display: none;">
+                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/loader.gif" alt="">
+                            </div>
+
+                            <div id="Div1" class="left ">
+                                <h4 id="H1" class="title_button first_click">
+                                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/sealion_button.png" alt="">
+                                </h4>
+                                <img class="test_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/sealion_section.png" alt="">
+                            </div>
+
+                            <div id="Div2" class="right ">
+                                <h4 id="H2" class="title_button first_click">
+                                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/transformer_button.png" alt="">
+                                </h4>
+                                <img class="test_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/transformer_section.png" alt="">
+                            </div>
+
+                            <!-- Absolute content insert with jQuer load()-->
+                            <div id="Div3" style=""></div>
+
+                            <div id="Div4" style=""></div>
+                        </div>
+                        <div id="trolling_rods" class="sliderkit-panel slide" style="display: none;">
+                            <div class="sliderkit-nav back_button">
+                                <div class="sliderkit-nav-clip">
+                                    <ul>
+                                        <li><a href="#" title="">&lt;&lt; Back</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="loadingDiv" style="display: none;">
+                                <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/loader.gif" alt="">
+                            </div>
+
+                            <div class="single_left_box">
+                                <h3 class="title">trolling rods</h3>
+                                <img class="test_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/rod_tehnology.png" alt="">
+                            </div>
+
+                            <!-- Absolute content insert with jQuer load()-->
+                            <div id="gt_rods_content_box" class="single_content_box"></div>
+
+                        </div>
+                        <div id="gt_rods" class="sliderkit-panel slide" style="display: none;">
+                            <div class="sliderkit-nav back_button">
+                                <div class="sliderkit-nav-clip">
+                                    <ul>
+                                        <li><a href="#" title="">&lt;&lt; Back</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="single_left_box">
+                                <!--<h3 class="left_title">gt rods</h3>-->
+                                <h3 class="left_title">
+                                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/gt_rods.png" alt=""></h3>
+                                <img class="test_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/rod_tehnology.png" alt="">
+                            </div>
+
+                            <!-- Absolute content insert with jQuer load()-->
+                            <div id="Div5" class="single_content_box">
+                                <div id="button_gt_1" class="rod_title notActive">
+                                    <a class="link" href="rod1-test.html" title="">
+                                        <h3 class="title_button activeSlide">GT 80/10</h3>
+                                        <img class="rod_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/rod_1.png" alt="">
+                                    </a>
+                                </div>
+
+                                <div id="button_gt_2" class="rod_title notActive">
+                                    <a class="link" href="rod2-test.html" title="">
+                                        <h3 class="title_button">GT 80/20</h3>
+                                        <img class="rod_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/rod_2.png" alt="">
+                                    </a>
+                                </div>
+
+                                <div id="button_gt_3" class="rod_title notActive">
+                                    <a class="link" href="rod3-test.html" title="">
+                                        <h3 class="title_button">GT 80H</h3>
+                                        <img class="rod_img" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/rod_3.png" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="content_popup_box" style="">
+                                    <div id="close_popup" class="close_item_page">close</div>
+                                    <div class="loadingDiv" style="display: none;">
+                                        <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/loader.gif" alt=""></div>
+
+                                    <div id="content_box_gt_1" class="rod_content_box"></div>
+                                    <div id="content_box_gt_2" class="rod_content_box"></div>
+                                    <div id="content_box_gt_3" class="rod_content_box"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- slide1 jigging-rods -->
+
+
+
+                    <!-- slide2 -->
+
+
+                    <!-- slide1 gt-rods -->
+
+
+                </div>
+                <!-- sliderkit-panels -->
+            </div>
+            <!-- #reel-slider -->
+        </section>
+
+        <section id="section3" class="parallax" data-speed="10" data-type="background" data-offsety="273" style="background-position: 50% 86.9px;">
+            <div class="customparts_section_container">
+                <h2 class="section_title">Custom Parts</h2>
+
+            </div>
+        </section>
+
+        <section id="section4" class="parallax" data-speed="10" data-type="background" data-offsety="350" style="background-position: 50% -96.30000000000001px;">
+            <!-- slide1 -->
+            <div id="accessories_slide1" class="accessories_slide">
+                <h2 class="section_title"><span>High qualaty</span>Accessories product range</h2>
+                <img class="mobile_section_image" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/accessories_section_mobile.jpg" alt="" style="">
+
+                <div id="button_accessories_category">
+                    <div class="button_accessories_category">
+                        <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/button_accessories_see_product_line.png" alt=""></div>
+                </div>
+            </div>
+
+            <!-- slide2 accessories-main-category ROUNDABOUTSLIDER -->
+            <div id="accessories_slide2" class="accessories_slide all_categorys">
+                <div class="back_button">&lt;&lt;&lt; back</div>
+                <div class="content_box">
+                    <a href="#" class="prev" style="">Prev</a>
+                    <ul>
+                        <li id="ass_1" class="survivor_subCategory">
+                            <a href="accessories-survivor-category" title="">
+                                <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-accessories/survivor_carbon_game_harness_system/Carbon_gimbal_(front).png" alt="survivor carbon game harness system">
+                                <span class="content_box_title">SURVIVOR SYSTEM </span>
+                            </a>
+                        </li>
+
+                        <li id="ass_2" class="belt_subCategory">
+                            <a href="accessories-belt-category" title="">
+                                <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-accessories/aluminum_fighting_belt/MG15.png" alt="aluminum fighting belt">
+                                <span class="content_box_title">ALUMINUM FIGHTING BELT</span>
+                            </a>
+                        </li>
+                        <li id="ass_3">
+                            <a href="item-page-test-2" title="">
+                                <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-accessories/fishing_grip_scale/MGR10.png" alt="fishing grip scale">
+                                <span class="content_box_title">FISHING GRIP SCALE</span>
+                            </a>
+                        </li>
+                        <li id="ass_4">
+                            <a href="item-page-test-2" title="">
+                                <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-accessories/aluminum_rotary_rod_holder/rod_holder_MRH08.png" alt="rod holder">
+                                <span class="content_box_title">ALUMINUM ROTARTY ROD HOLDER</span>
+                            </a>
+                        </li>
+                        <li id="ass_5">
+                            <a href="item-page-test-2" title="">
+                                <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-accessories/stainless_steel_flush_mount_rod_holder/rod_holder_MRH09_3.png" alt="stainless steel flush mount rod holder">
+                                <span class="content_box_title">STAINLESS STEEL FLUSH MOUNT ROD HOLDER</span>
+                            </a>
+                        </li>
+                        <li id="ass_6" class="knobs_subCategory">
+                            <a href="accessories-knobs-category" title="">
+                                <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-accessories/handle_knobs/Alu_T_bar_with_straight_holes.png" alt="handle knobs">
+                                <span class="content_box_title">REEL HANDLE KNOBS</span>
+                            </a>
+                        </li>
+                        <li id="ass_7">
+                            <a href="item-page-test-2" title="">
+                                <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-accessories/rod_clamp/rod_clamp.png" alt="rod_clamp">
+                                <span class="content_box_title">ROD CLAMP (TO SUPPORT MAXEL REELS ONLY)  </span>
+                            </a>
+                        </li>
+                        <li id="ass_8">
+                            <a href="item-page-test-2" title="">
+                                <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-accessories/trolling_gear/trolling_gear.png" alt="trolling_gear">
+                                <span class="content_box_title">trolling gear</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="next" style="">Next</a>
+                </div>
+
+                <div class="content_popup_box" style="">
+                    <div id="Div6" class="close_item_page">close</div>
+                    <div class="loadingDiv" style="display: none;">
+                        <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/loader.gif" alt=""></div>
+
+                    <div id="accessories_content_1" class="popup_content survivor_subCategory" style=""></div>
+                    <div id="accessories_content_2" class="popup_content belt_subCategory" style=""></div>
+                    <div id="accessories_content_3" class="popup_content" style=""></div>
+                    <div id="accessories_content_4" class="popup_content" style=""></div>
+                    <div id="accessories_content_5" class="popup_content" style=""></div>
+                    <div id="accessories_content_6" class="popup_content knobs_subCategory" style=""></div>
+                    <div id="accessories_content_7" class="popup_content" style=""></div>
+                    <div id="accessories_content_8" class="popup_content" style=""></div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="section5" class="parallax" data-speed="10" data-type="background" data-offsety="450" style="background-position: 50% -106.29999999999995px;">
+            <!-- Start contentslider-std -->
+            <div id="apparel-slider" class="sliderkit contentslider-std" style="display: block;">
+
+                <div class="sliderkit-panels">
+                    <div class="hp_apparel_nav">
+
+                        <div class="sliderkit-nav">
+                            <div class="sliderkit-nav-clip">
+                                <ul>
+                                    <li class="nav_box sliderkit-selected" style="display: none;"><a href="#" title="[link title]">Apparel</a></li>
+                                    <li class="nav_box first"><a href="#" title="[link title]">T-shirts</a></li>
+                                    <li class="nav_box"><a href="#" title="[link title]">Hats</a></li>
+                                    <li class="nav_box"><a href="#" title="[link title]">Other</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- sliderkit-nav -->
+                    </div>
+
+                    <!-- apparel-home slide0 -->
+                    <div class="sliderkit-panels-wrapper" style="position: relative;">
+                        <div class="sliderkit-panel home_slide sliderkit-panel-active" style="display: block;">
+                            <img class="mobile_section_image" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/apparel_section_mobile.jpg" alt="" style="">
+
+                            <div class="apparel_section_black_top" data-type="sprite" data-offsety="2400" data-xposition="20%" data-speed="2" style="background-position: 20% -381.5px;"></div>
+
+                            <div class="apparel_section_title_bg">
+                                <h2 class="section_title">Apparel</h2>
+                            </div>
+
+
+                        </div>
+                        <div id="tournament_tops" class="sliderkit-panel slide" style="display: none;">
+                            <div class="sliderkit-nav back_button">
+                                <div class="sliderkit-nav-clip">
+                                    <ul>
+                                        <li><a href="#" title="">&lt;&lt; Back</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="content_box">
+                                <h2 class="slide_title">Tournament Tops </h2>
+                                <ul class="category_products">
+                                    <li id="top_1" class="product">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/t-shirts/quick-dry-long-sleeve/transformet_top_dak.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+
+                                    <li id="top_2" class="product last">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/t-shirts/quick-dry-long-sleeve/transformet_top_white.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+                                    <li id="top_3" class="product last">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/t-shirts/quick-dry-long-sleeve/sealion_dark.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+                                    <li id="top_4" class="product last">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/t-shirts/quick-dry-long-sleeve/sealion_pink.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="content_box">
+                                <h2 class="slide_title short_sleeves">Short Sleeves </h2>
+                                <ul class="category_products">
+                                    <li id="top_5" class="product first">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/t-shirts/short-sleeve/short_sleeves_t-shirt_maxel_orange.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+
+                                    <li id="top_6" class="product">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/t-shirts/short-sleeve/short_sleeves_t-shirt_sealion_dark.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+
+                                    <li id="top_7" class="product">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/t-shirts/short-sleeve/short_sleeves_t-shirt_sealion_white.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+
+                                    <li id="top_8" class="product">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/t-shirts/short-sleeve/short_sleeves_t-shirt_transformer_red.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="content_popup_box" style="">
+                                <div id="Div7">close</div>
+                                <div class="loadingDiv" style="display: none;">
+                                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/loader.gif" alt=""></div>
+
+                                <div id="top_content_1" class="popup_content" style=""></div>
+                                <div id="top_content_2" class="popup_content" style=""></div>
+                                <div id="top_content_3" class="popup_content" style=""></div>
+                                <div id="top_content_4" class="popup_content" style=""></div>
+                                <div id="top_content_5" class="popup_content" style=""></div>
+                                <div id="top_content_6" class="popup_content" style=""></div>
+                                <div id="top_content_7" class="popup_content" style=""></div>
+                                <div id="top_content_8" class="popup_content" style=""></div>
+
+                            </div>
+                        </div>
+                        <div id="hats" class="sliderkit-panel slide" style="display: none;">
+                            <div class="sliderkit-nav back_button">
+                                <div class="sliderkit-nav-clip">
+                                    <ul>
+                                        <li><a href="#" title="">&lt;&lt; Back</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h2 class="slide_title">Hats
+                            </h2>
+
+                            <div class="content_box">
+                                <ul class="category_products">
+                                    <li id="hat_1" class="product first">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/hats/hat_blue.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+
+                                    <li id="hat_2" class="product">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/hats/hat_beige.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- tournament_tops_content_box -->
+
+                            <div class="content_popup_box" style="">
+                                <div id="Div8">close</div>
+                                <div class="loadingDiv" style="display: none;">
+                                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/loader.gif" alt=""></div>
+
+                                <div id="hat_content_1" class="popup_content" style=""></div>
+                                <div id="hat_content_2" class="popup_content" style=""></div>
+                            </div>
+                        </div>
+                        <div id="other" class="sliderkit-panel slide" style="display: none;">
+                            <div class="sliderkit-nav back_button">
+                                <div class="sliderkit-nav-clip">
+                                    <ul>
+                                        <li><a href="#" title="">&lt;&lt; Back</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h2 class="slide_title">Others
+                            </h2>
+
+                            <div class="content_box">
+                                <ul class="category_products">
+                                    <li id="other_1" class="product first">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/other/neoprene_reel_cover.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+
+                                    <li id="other_2" class="product">
+                                        <div class="product_img">
+                                            <img src="http://test.fishingreels.com.au:8082/media/wysiwyg/hp-apparel/other/shoulder_harness_vest.png" alt=""></div>
+                                        <span class="butoon_product_info">
+                                            <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/butoon_product_info.png" alt=""></span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!-- tournament_tops_content_box -->
+
+                            <div class="content_popup_box" style="">
+                                <div id="Div9">close</div>
+                                <div class="loadingDiv" style="display: none;">
+                                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/loader.gif" alt=""></div>
+
+                                <div id="other_content_1" class="popup_content" style=""></div>
+                                <div id="other_content_2" class="popup_content" style=""></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- slide1 jigging-rods -->
+
+
+                    <!-- slide 2 -->
+
+
+                    <!-- slide 3 -->
+
+                </div>
+                <!-- sliderkit-panels -->
+            </div>
+            <!-- #reel-slider -->
+        </section>
+
+        <section id="section6" class="parallax" data-speed="10" data-type="background" data-offsety="536" style="background-position: 50% -30.299999999999955px;">
+            <img class="dealers_map_bg" src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_bg.png" alt="">
+
+            <!-- individual dealers -->
+            <div class="dealer_block central_america">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="central_america" class="dealer_name" title="" data-toggle="popover" data-placement="left" data-html="true" data-content="Aruba &amp; Curacao, British Virgin Islands, Colombia, Dominican Republic, Dutch Virgin Islands, French Virgin Islands, Panamá, Puerto Rico, U.S. Virgin Islands, Venezuela, Mexico, Costa Rica, Guatemala, El Salvador, Honduras, Belize and Nicaragua. &lt;/br&gt;&lt;/br&gt; 5189 N.W. 105 court, Doral, Florida 33178 USA &lt;/br&gt;Contact: Mr. Reinaldo Ugarte &lt;/br&gt;E-mail: reinaldo@passion4thesea.com &lt;/br&gt; &lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_venezuela.gif' alt='' /&gt;" data-original-title="Sales Representative for Central America &amp; Caribbean Ocean">
+                    Central America &amp; Caribbean Ocean
+                </button>
+            </div>
+
+            <div class="dealer_block cyprus">
+                <button type="button" id="cyprus" class="dealer_name" title="" data-toggle="popover" data-placement="bottom" data-html="true" data-content="No. 68 Makedonitisis Ave., 2057 Strovolos, Nicosia, Cyprus &lt;/br&gt; Contact: Mr. Andreas Yiallouris &lt;/br&gt; Tel: 00357 2245 0555 &lt;/br&gt; Fax: 00357 2242 4566 &lt;/br&gt; Mob: 00357 9944 6383&lt;/br&gt; &lt;a href='http://www.kimamarine.com/' title=''&gt;www.kimamarine.com&lt;/a&gt;&lt;/br&gt; &lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_cyprus.gif' alt='' /&gt;" data-original-title="KIMA MARINE SERVICES LTD.">
+                    Cyprus
+                </button>
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+            </div>
+
+            <div class="dealer_block germany">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="germany" class="dealer_name" title="" data-toggle="popover" data-placement="right" data-html="true" data-content="Am Gut Baarking 13, 46395 Bocholt, Germany &lt;/br&gt; Contact: Michael Moritz &lt;/br&gt; Tel: 0049 2871 228808 &lt;/br&gt; &lt;a href='http://www.fishing-adventure.com/' title=''&gt;www.fishing-adventure.com&lt;/a&gt;&lt;/br&gt; &lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_germany.gif' alt='' /&gt;" data-original-title="FISHING ADVENTURE GMBH">
+                    Germany, Benelux, Austria &amp; Switzerland
+                </button>
+            </div>
+
+            <div class="dealer_block greece">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="greece" class="dealer_name" title="" data-toggle="popover" data-placement="right" data-html="true" data-content="61 Kallirois Str., 11743 Athens, Greece &lt;/br&gt; Contact: Mr. M. Kaminaras &lt;/br&gt; Tel: 0030 210 9223813 &lt;/br&gt;&lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_greece.gif' alt='' /&gt;" data-original-title="THE STAR CO.">
+                    Greece
+                </button>
+
+            </div>
+
+            <div class="dealer_block italy">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="italy" class="dealer_name" title="" data-toggle="popover" data-placement="left" data-html="true" data-content="Via Atene, 7-43010 Bianconese di Fontevivo (PR), Italy &lt;/br&gt;Contact: Roberto Trabucco &lt;/br&gt; Tel: 0039 521 618000 &lt;/br&gt; &lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_italy.gif' alt='' /&gt;" data-original-title="TRABUCCO FISHING DIFFUSION CO. S.R.L.">
+                    Italy
+                </button>
+            </div>
+
+            <div class="dealer_block israel">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="israel" class="dealer_name" title="" data-toggle="popover" data-placement="bottom" data-html="true" data-content="PO Box 4141 Ashdod 77140, Israel&lt;/br&gt;Contact: Smadar Dan &lt;/br&gt;Tel: 00972 8 8677663&lt;/br&gt;&lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_israel.png' alt='' /&gt;" data-original-title="ASHDOD-YAM LTD.">
+                    Israel
+                </button>
+            </div>
+
+            <div class="dealer_block kuwait">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="kuwait" class="dealer_name" title="" data-toggle="popover" data-placement="right" data-html="true" data-content="PO Box 1897, Safat 13019, Kuwait&lt;/br&gt; Contact: Adnan Ashkanani &lt;/br&gt;Tel: 00965 2491 3751&lt;/br&gt;Fax: 00965 2491 3750&lt;/br&gt;E-mail: Sales@kuwaitfishing.com&lt;/br&gt; &lt;a href='http://www.kuwaitfishing.com' title=''&gt;www.kuwaitfishing.com&lt;/a&gt;&lt;/br&gt; &lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_kuwait.png' alt='' /&gt;" data-original-title="AL-MANAR MARINE CONSTRUCTIONS &amp; EQUIPMENTS CO.">
+                    Kuwait, Bahrain, Oman, Qatar, Saudi Arabia, UAE
+                </button>
+
+            </div>
+
+            <div class="dealer_block lebanon">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="lebanon" class="dealer_name" title="" data-toggle="popover" data-placement="right" data-html="true" data-content="Balco Stores, Balco Building, Moutran Street, PO Box 622, Tripoli (via Beirut), Lebanon&lt;/br&gt;Contact: Mr. George Abunassar&lt;/br&gt;Tel: 00961 6 624512&lt;/br&gt;&lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_lebanon.png' alt='' /&gt;" data-original-title="M/S LETRO.">
+                    Lebanon &amp; Syria
+                </button>
+            </div>
+
+            <div class="dealer_block maldives">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="maldives" class="dealer_name" title="" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Shop No. 2, IMD Building, Boduthakurufaanu Magu, Male 20186, Maldives&lt;/br&gt;Contact: Mr. Ahmed&lt;/br&gt;Tel: 00960 332 7372&lt;/br&gt;&lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_maldives.png' alt='' /&gt;" data-original-title="VADHUFOSHI">
+                    Maldives
+                </button>
+            </div>
+
+            <div class="dealer_block new_zeland">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="new_zeland" class="dealer_name" title="" data-toggle="popover" data-placement="top" data-html="true" data-content="12 A Parkhead Place, North Harbour 0632, Auckland, New Zealand &lt;/br&gt;Contact: Mr. Kevin Green &lt;/br&gt;Tel: 064 9 414 1966&lt;/br&gt;&lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_NZ.gif' alt='' /&gt;" data-original-title="ALLIED OUTDOORS LTD.">
+                    New Zealand 
+                </button>
+            </div>
+
+            <div class="dealer_block portugal">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="portugal" class="dealer_name" title="" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Rua da Liberdade 91, 8700-019 Fuseta, Portugal&lt;/br&gt;Contact: Mr. Luis Nabais&lt;/br&gt;Tel: 00351 2897 13606&lt;/br&gt;&lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_portugal.gif' alt='' /&gt;" data-original-title="Rua da Liberdade 91, 8700-019 Fuseta, Portugal">
+                    Portugal 
+                </button>
+            </div>
+
+            <div class="dealer_block south_america">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="south_america" class="dealer_name" title="" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Shopping Pacific, 5 Piso, Ciudad Del Este, Paraguay&lt;/br&gt;Contact: Mr. Joninho Fernandes &lt;/br&gt;Tel: 00595 61 501 011&lt;/br&gt;&lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_paraguay.gif' alt='' /&gt;" data-original-title="SUMAX FISHING">
+                    South America 
+                </button>
+            </div>
+
+            <div class="dealer_block south_east_asia ">
+                <div class="dealer_map_img">
+                    <img src="http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/dealers_map_point.png" alt=""></div>
+                <button type="button" id="south_east_asia" class="dealer_name" title="" data-toggle="popover" data-placement="right" data-html="true" data-content="Contact: Mr. Jason Chin  &lt;/br&gt; Tel: 0060 167181580&lt;/br&gt;E-mail: jason@instructorfishing.com.my &lt;/br&gt; &lt;a href='http://www.instructorfishing.com.my' title=''&gt;www.instructorfishing.com.my&lt;/a&gt;&lt;/br&gt; &lt;img class='flag' src='http://test.fishingreels.com.au:8082/skin/frontend/maxelpackage/maxelThemeAuEn/images/customImages/flag_singapore.gif' alt='' /&gt;" data-original-title="INSTRUCTOR FISHING TACKLE">
+                    South East Asia 
+                </button>
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+</html>

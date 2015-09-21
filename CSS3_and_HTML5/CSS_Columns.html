@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CSS3 Columns</title>
+
+    <style>
+
+    #content {
+    
+      -webkit-column-count: 2;
+      -webkit-column-rule: 1px solid #bbb;
+      -webkit-column-gap: 100px;
+    
+      -moz-column-count: 2;
+      -moz-column-rule: 1px solid #bbb;
+      -moz-column-gap: 30px;
+    
+      column-count: 2;
+      column-rule: 1px solid #bbb;
+      column-gap: 100px;
+    
+      display: block;
+      margin-top:100px;
+    }
+
+        .wrapper {
+            width:960px;
+            margin:50px auto;
+        }
+
+  </style>
+
+</head>
+<body>
+
+    <div class="wrapper">
+        <h1>CSS3 Columns</h1>
+        <section>
+            <h2>CSS style</h2>
+            <p><code>#content{</code></p>
+            <p><code>column-count:2</code></p>
+            <p><code>column-rule:1px solid silver</code></p>
+            <p><code>column-gap:2</code></p>
+
+            <div id="content"></div>
+        </section>
+
+    </div>
+    
+    <script type="text/javascript">
+        /*
+         * Insert text content via javascript
+         */
+        var content = document.getElementById('content');
+        var loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        content.innerText = loremIpsum;
+      
+        /*
+         * Insert slide bar
+         */
+        var contentStyle = content.style;
+        var slideBar = document.createElement('p');
+
+        slideBar.innerHTML = "<input type='range' min='1' max='6' value='2' />";
+        document.querySelector('section').appendChild(slideBar);
+
+        slideBar.addEventListener('change', function(event) {
+            contentStyle.webkitColumnCount = event.target.value;
+            //We cat value of slideBar with event.target and add it to column-count style of #content element
+            //The target event property returns the element that triggered the event.
+        }, false);
+      
+        </script>
+</body>
+</html>

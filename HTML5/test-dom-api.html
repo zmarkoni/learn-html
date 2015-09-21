@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <script type="application/javascript">
+            function setBodyAttr(attr,value){
+            if (document.body) eval('document.body.'+attr+'="'+value+'"');
+            else notSupported();
+            }
+        </script>
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="wrapper">
+            <!-- Add your site or application content here -->
+
+            <h3>The following is a brief list of common APIs in web and XML page scripting using the DOM.</h3>
+            <ul>
+                <li><code><a href="/en-US/docs/DOM/document.getElementById" title="DOM/document.getElementById">document.getElementById</a>(id)</code></li>
+                <li><code>element.<a href="/en-US/docs/Web/API/Element.getElementsByTagName" title="DOM/element.getElementsByTagName">getElementsByTagName</a>(name)</code></li>
+                <li><code><a href="/en-US/docs/DOM/document.createElement" title="DOM/document.createElement">document.createElement</a>(name)</code></li>
+                <li><code>parentNode.<a href="/en-US/docs/DOM/Node.appendChild" title="DOM/Node.appendChild">appendChild</a>(node)</code></li>
+                <li><code>element.<a href="/en-US/docs/DOM/element.innerHTML" title="DOM/element.innerHTML">innerHTML</a></code></li>
+                <li><code>element.<a href="/en-US/docs/DOM/element.style" title="DOM/element.style">style</a>.left</code></li>
+                <li><code>element.<a href="/en-US/docs/DOM/element.setAttribute" title="DOM/element.setAttribute">setAttribute</a></code></li>
+                <li><code>element.<a href="/en-US/docs/DOM/element.getAttribute" title="DOM/element.getAttribute">getAttribute</a></code></li>
+                <li><code>element.<a href="/en-US/docs/DOM/element.addEventListener" title="DOM/element.addEventListener">addEventListener</a></code></li>
+                <li><code><a href="/en-US/docs/DOM/window.content" title="DOM/window.content">window.content</a></code></li>
+                <li><code><a href="/en-US/docs/DOM/window.onload" title="DOM/window.onload">window.onload</a></code></li>
+                <li><code><a href="/en-US/docs/DOM/window.dump" title="DOM/window.dump">window.dump</a></code></li>
+                <li><code><a href="/en-US/docs/DOM/window.scrollTo" title="DOM/window.scrollTo">window.scrollTo</a></code></li>
+            </ul>
+
+            <h3>Testing the DOM API</h3>
+            <div style="margin: .5in; height: 400;"> 
+                <p><b><tt>text</tt>color</b></p> 
+                <form> 
+                    <select onChange="setBodyAttr('text',
+            this.options[this.selectedIndex].value);"> 
+                        <option value="black">black 
+                        <option value="darkblue">darkblue 
+                    </select>
+                    <p><b><tt>bgColor</tt></b></p>
+                    <select onChange="setBodyAttr('bgColor',
+                                    this.options[this.selectedIndex].value);"> 
+                        <option value="white">white 
+                        <option value="lightgrey">gray
+                    </select>
+                    <p><b><tt>link</tt></b></p> 
+                    <select onChange="setBodyAttr('link',
+                                    this.options[this.selectedIndex].value);">
+                        <option value="blue">blue
+                        <option value="green">green
+                    </select>  <small>
+                        <a href="http://www.brownhen.com/dom_api_top.html" id="sample">
+                            (sample link)</a></small><br>
+                </form>
+                <form>
+                    <input type="button" value="version" onclick="ver()" />
+                </form>
+            </div>
+
+        </div><!-- wrapper-->
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>

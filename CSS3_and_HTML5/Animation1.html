@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="EN" dir="ltr" xmlns="http://www.w3.org/1999/
+      xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/xml;
+      charset=utf-8" />
+
+  <style type = "text/css">
+  #content {
+    width: 300px;
+    height: 200px;
+    font-size: 200%;
+    background-color: yellow;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    padding-left: .5em;
+  }
+  </style>
+  
+  <script src="js/jQuery-v1.9.1.js"></script>
+
+  <script type = "text/javascript">
+      //<![CDATA[
+      $(init);
+
+      function init() {
+          $("#move").click(move);
+          $("#glide").click(glide);
+          $("#left").click(left);
+          $("#right").click(right);
+          
+      } // end init
+
+      function move() {
+          $("#content")
+              .css("left", "50px")
+              .css("top", "100px");
+      } // end move      
+
+      function glide() {
+          //move to initial spot
+          $("#content")
+              .css("left", "50px")
+              .css("top", "100px");
+
+          //slide to new spot
+          $("#content").animate({
+              "left": "400px",
+              "top": "200px"
+          }, 'slow');
+      } // end glide
+
+      function left() {
+          $("#content").animate({ "left": "-=10px" }, 100);
+      } // end left
+
+      function right() {
+          $("#content").animate({ "left": "+=10px" }, 100);
+      } // end left
+      //]]>
+  </script>
+  
+  <title>Animate.html</title>
+</head>
+<body>
+<h1>Animation Demo</h1>
+<form action = "">
+  <fieldset>
+    <button type = "button"
+            id = "move">
+      move
+    </button>
+    <button type = "button"
+            id = "glide">
+      glide
+    </button>
+    
+    <button type = "button"
+            id = "left">
+       &lt;--
+     </button>
+     
+     <button type = "button"
+             id = "right">
+       -->
+     </button>
+    
+  </fieldset>
+</form>
+
+<p id = "content">
+  This content will move in response to the controls.
+</p>
+</body>
+</html>
